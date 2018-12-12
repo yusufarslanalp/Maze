@@ -194,7 +194,7 @@ public class Create_map extends javax.swing.JFrame {
         return new Cordinate( -1, -1 );
     }
 
-    //tüm butonları başlangıçta beyaz yapar.
+    //tüm butonları başlangıçta siyah yapar.
     private void
     init_buttons()
     {
@@ -203,7 +203,7 @@ public class Create_map extends javax.swing.JFrame {
                 button_arr[i][j].setBackground(Color.black);
     }
     
-    //tüm butonları başlangıçta boş yapar.
+    //tüm butonları başlangıçta "wall" yapar.
     private void
     init_map()
     {
