@@ -1,6 +1,7 @@
 package maze;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 //Bu sınıfın işlevi:
@@ -210,7 +211,7 @@ public class Maze
         return -1;
     }
     
-    
+
     
     public static void main( String args[] )
     {
@@ -241,18 +242,33 @@ public class Maze
                 }
             }
 
-            //cr_map.map üzerindeki başangıç noktası bulundu
-            cr_map.map.start = cr_map.find_start();
+            if( cr_map.is_avalid() == true )
+            {
+                //cr_map.map üzerindeki başangıç noktası bulundu
+                cr_map.map.start = cr_map.find_start();
 
-             Maze mz = new Maze( cr_map.get_map() , cr_map.map.start );
-             mz.walk();
+                 Maze mz = new Maze( cr_map.get_map() , cr_map.map.start );
+                 mz.walk();
 
-            //en kısa çıkış patikası GUI üzerinde gösterildi.
-            cr_map.print_shortest_path( mz.return_sorthest_exit() );
+                //en kısa çıkış patikası GUI üzerinde gösterildi.
+                cr_map.print_shortest_path( mz.return_sorthest_exit() );
 
-            //bu satır sayesinde döngünün başına dönüldüğünde iç kısımdaki
-            //while döngüsünde programın durdurulması sağlanır.
-            cr_map.is_stop = true;
+                //bu satır sayesinde döngünün başına dönüldüğünde iç kısımdaki
+                //while döngüsünde programın durdurulması sağlanır.
+                cr_map.is_stop = true;
+            }
+            
+            else
+            {
+                //prits message box
+                System.out.println("invalid map");
+                JOptionPane.showMessageDialog(null,
+                    "invalid map\nthere should not be 2x2 empty tile in maze");
+                cr_map.is_stop = true;
+            }
+             
+
+
          }
     }    
 }
