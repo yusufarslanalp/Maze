@@ -56,6 +56,16 @@ public class Create_map extends javax.swing.JFrame {
         
     }
 
+    boolean
+    is_avalid()
+    {
+        if(map.is_map_valid() == true)
+        {
+            return true;
+        }
+        return false;
+    }
+
     void reset()
     {
         init_buttons();
@@ -194,7 +204,7 @@ public class Create_map extends javax.swing.JFrame {
         return new Cordinate( -1, -1 );
     }
 
-    //tüm butonları başlangıçta siyah yapar.
+    //tüm butonları başlangıçta beyaz yapar.
     private void
     init_buttons()
     {
@@ -203,7 +213,7 @@ public class Create_map extends javax.swing.JFrame {
                 button_arr[i][j].setBackground(Color.black);
     }
     
-    //tüm butonları başlangıçta "wall" yapar.
+    //tüm butonları başlangıçta boş yapar.
     private void
     init_map()
     {
