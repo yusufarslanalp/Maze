@@ -28,6 +28,44 @@ public class Map
                 map[i][j] = new String( right.map[i][j] );
             }
     }
+    
+    boolean
+    is_map_valid()
+    {
+        int check_i = map.length - 1;
+        int check_j = map[check_i].length -1;
+        
+        for( int i = 0; i < check_i; i++ )
+        {
+            for(int j = 0; j < check_j; j++)
+            {
+                if( invalid_map_piece(i,j) == true ) return false;
+            
+            }
+        
+        }
+        return true;
+    }
+    
+
+    /*
+    eğer map arrayinin verilen noktası için
+    E  E
+    E  E
+    şeklinde 2x2 lik bir empty bölge varsa true return eder.
+    Çünkü o noktada invalid bir bölge vardır.
+    */
+    boolean
+    invalid_map_piece(int i, int j)
+    {
+        if( map[i][j].equals("empth") &&
+            map[i][j+1].equals("empth") &&
+            map[i+1][j].equals("empth") &&
+            map[i+1][j+1].equals("empth")   
+          ) return true;
+        
+        else return false;
+    }
 	
     int num_of_line()
     {
